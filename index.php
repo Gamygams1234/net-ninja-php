@@ -1,17 +1,18 @@
 <?php
-// integer
-$radius = 40;
-// float
-$pi = 3.14;
-// this will be our incrementer
-echo ++$radius;
+$peopleOne = ['john', 'Hugo', 'Eddie'];
 
-// this will print out 30 on the browser
-$age = 10;
-$age += 20;
-echo $age;
-// this will make an integer, we can also use ciel
-echo floor($pi);
+// this is another way to make an array 
+$peopleTwo = array('Grant', 'Chris', 'Cullen');
+// this will be how we merge all of the people
+$peopleThree = array_merge($peopleOne, $peopleTwo);
+// associative arrays
+
+
+$ninjasOne = ['Gamy'=> 'black', 'Mario' => 'orange', 'Luigi' => 'blue'];
+ 
+$ninjasOne['Lorenz'] = 'black';
+// we can change tha value of a multi dimensional array
+$ninjasOne['Luigi'] = 'grey';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,6 +22,18 @@ echo floor($pi);
     <title>My first PHP file</title>
 </head>
 <body>
+<div><?php echo $peopleOne[1]?></div>
+<div><?php echo $peopleOne[1]?></div>
+<!-- this will give us the length of the array -->
+<div><?php echo count($peopleOne)?></div>
+<div><?php echo count($peopleOne)?></div>
+<!--  this will show us all the values in the array -->
+<div><?php echo print_r($peopleThree)?></div>
+
+
+<div><?php echo $ninjasOne['Gamy'];?></div>
+<div><?php echo print_r($ninjasOne)?></div>
+
 
 
 </body>
