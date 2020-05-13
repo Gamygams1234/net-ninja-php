@@ -1,5 +1,8 @@
 <?php
-
+//$name = 'Yoshi';
+$age = 30;
+//echo $name;
+define('NAME', 'Yoshi');
 
 ?>
 <!DOCTYPE html>
@@ -10,9 +13,7 @@
     <title>My first PHP file</title>
 </head>
 <body>
-    <h1><?php
-echo "the champ is here";
-
-?><h1>
+    <h1><?php echo NAME;?><h1>
+<div>Age: <?php echo $age?></div>
 </body>
 </html>
