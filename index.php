@@ -1,13 +1,35 @@
 <?php
-	$blogs = [
-		['title' => 'mario party', 'author' => 'mario', 'content' => 'lorem'],
-		['title' => 'mariokart cheats', 'author' => 'toad', 'content' => 'lorem'],
-		['title' => 'zelda hidden chests', 'author' => 'link', 'content' => 'lorem']
-    ];
+// this is how we print loops in php
+	$ninjas = ['shaun', 'ryu', 'yoshi'];
 
-    // this will add one to the end
+	// for($i = 0; $i < count($ninjas); $i++){
+	// 	echo $ninjas[$i] . '<br />';
+    // }
+
+    // this is another way to put the ninjas in an array
+
+    // 	foreach($ninjas as $ninja){
+	// 	echo $ninja . ' <br/>';
+	// }
+    $products = [
+		['name' => 'shiny star', 'price' => 20],
+		['name' => 'green shell', 'price' => 10],
+		['name' => 'red shell', 'price' => 15],
+		['name' => 'gold coin', 'price' => 5],
+		['name' => 'lightning bolt', 'price' => 40],
+		['name' => 'banana skin', 'price' => 2]
+    ];
     
-    $blogs[] = ['title' => 'castle party', 'author' => 'peach', 'content' => 'lorem'];
+
+    // this is an example of a While loop that we will see
+    $i = 0;
+
+	while($i < count($products)){
+		echo $products[$i]['name'];
+		echo '<br />';
+		$i++;
+	}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -17,12 +39,14 @@
     <title>My first PHP file</title>
 </head>
 <body>
-<div> <?php echo print_r($blogs); ?></div>
-<!-- this will pop the item -->
-<div> <?php $popped = array_pop($blogs); ?></div>
-<div> <?php echo print_r($blogs); ?></div>
-<!-- this will print out the popped item in the array -->
-<div> <?php echo print_r($popped); ?></div>
+<!-- this will cycle throught all of our products and list all of our items -->
+<h1>Products</h1>
+	<ul>
+		<?php foreach($products as $product){ ?>
+			<h3><?php echo $product['name']; ?></h3>
+			<p>£<?php echo $product['price']; ?></p>
+		<?php } ?>
+	</ul>
 
 </body>
 </html>
