@@ -1,8 +1,7 @@
 <?php
-//$name = 'Yoshi';
-$age = 30;
-//echo $name;
-define('NAME', 'Yoshi');
+ $stringOne = 'My email is ';
+ $stringTwo = 'gamyburgos@gmail.com';
+ $name = 'Gamy';
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +12,18 @@ define('NAME', 'Yoshi');
     <title>My first PHP file</title>
 </head>
 <body>
-    <h1><?php echo NAME;?><h1>
-<div>Age: <?php echo $age?></div>
+
+
+<div><?php echo $stringOne.$stringTwo; ?> </div>
+<!-- we can concat strings with variables -->
+<div><?php echo 'Hey my name is '.$name; ?> </div>
+<!--  we can use the doulbe quotes to just put down the quote -->
+<div><?php echo " I am the real $name" ;?> </div>
+
+<!-- putting the backslash for the quotes -->
+<div><?php echo "Cow says \"moo\"" ;?> </div>
+<div><?php echo 'Duck says "quack"' ;?> </div>
+<!-- this will get certain letters out of the string -->
+<div><?php echo $stringOne[3] ?> </div>
 </body>
 </html>
