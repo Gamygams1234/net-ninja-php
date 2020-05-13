@@ -1,18 +1,13 @@
 <?php
-$peopleOne = ['john', 'Hugo', 'Eddie'];
+	$blogs = [
+		['title' => 'mario party', 'author' => 'mario', 'content' => 'lorem'],
+		['title' => 'mariokart cheats', 'author' => 'toad', 'content' => 'lorem'],
+		['title' => 'zelda hidden chests', 'author' => 'link', 'content' => 'lorem']
+    ];
 
-// this is another way to make an array 
-$peopleTwo = array('Grant', 'Chris', 'Cullen');
-// this will be how we merge all of the people
-$peopleThree = array_merge($peopleOne, $peopleTwo);
-// associative arrays
-
-
-$ninjasOne = ['Gamy'=> 'black', 'Mario' => 'orange', 'Luigi' => 'blue'];
- 
-$ninjasOne['Lorenz'] = 'black';
-// we can change tha value of a multi dimensional array
-$ninjasOne['Luigi'] = 'grey';
+    // this will add one to the end
+    
+    $blogs[] = ['title' => 'castle party', 'author' => 'peach', 'content' => 'lorem'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,19 +17,12 @@ $ninjasOne['Luigi'] = 'grey';
     <title>My first PHP file</title>
 </head>
 <body>
-<div><?php echo $peopleOne[1]?></div>
-<div><?php echo $peopleOne[1]?></div>
-<!-- this will give us the length of the array -->
-<div><?php echo count($peopleOne)?></div>
-<div><?php echo count($peopleOne)?></div>
-<!--  this will show us all the values in the array -->
-<div><?php echo print_r($peopleThree)?></div>
-
-
-<div><?php echo $ninjasOne['Gamy'];?></div>
-<div><?php echo print_r($ninjasOne)?></div>
-
-
+<div> <?php echo print_r($blogs); ?></div>
+<!-- this will pop the item -->
+<div> <?php $popped = array_pop($blogs); ?></div>
+<div> <?php echo print_r($blogs); ?></div>
+<!-- this will print out the popped item in the array -->
+<div> <?php echo print_r($popped); ?></div>
 
 </body>
 </html>
