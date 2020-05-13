@@ -1,34 +1,36 @@
 <?php
-// this is how we print loops in php
-	$ninjas = ['shaun', 'ryu', 'yoshi'];
+	// comparisons & booleans (true or false)
+	//echo true // echo's "1"
+	//echo false // echo's ""
 
-	// for($i = 0; $i < count($ninjas); $i++){
-	// 	echo $ninjas[$i] . '<br />';
-    // }
+    // this will echo all of the variables
+	// numbers
+	// echo 5 < 10;
+	// echo 5 > 10;
+	//echo 5 == 10;
+	//echo 10 == 10;
+	//echo 5 != 10;
+	//echo 5 <= 5;
+	//echo 5 >= 5;
 
-    // this is another way to put the ninjas in an array
+// depending on the first letter of the  word
 
-    // 	foreach($ninjas as $ninja){
-	// 	echo $ninja . ' <br/>';
-	// }
-    $products = [
-		['name' => 'shiny star', 'price' => 20],
-		['name' => 'green shell', 'price' => 10],
-		['name' => 'red shell', 'price' => 15],
-		['name' => 'gold coin', 'price' => 5],
-		['name' => 'lightning bolt', 'price' => 40],
-		['name' => 'banana skin', 'price' => 2]
-    ];
-    
+	// strings
+	// echo 'shaun' < 'yoshi';
+	echo 'shaun' > 'yoshi';
+	//echo 'shaun' > 'Shaun';
+	//echo 'mario' == 'mario';
+	//echo 'mario' == 'Mario';
 
-    // this is an example of a While loop that we will see
-    $i = 0;
+	// loose vs strict equal comparison
 
-	while($i < count($products)){
-		echo $products[$i]['name'];
-		echo '<br />';
-		$i++;
-	}
+	//echo 5 == '5';
+	//echo 5 === '5';
+	//echo 5 === 5;
+
+	//echo true == 1;
+	// echo true === 1;
+
 
 ?>
 <!DOCTYPE html>
@@ -39,14 +41,7 @@
     <title>My first PHP file</title>
 </head>
 <body>
-<!-- this will cycle throught all of our products and list all of our items -->
-<h1>Products</h1>
-	<ul>
-		<?php foreach($products as $product){ ?>
-			<h3><?php echo $product['name']; ?></h3>
-			<p>£<?php echo $product['price']; ?></p>
-		<?php } ?>
-	</ul>
+
 
 </body>
 </html>
