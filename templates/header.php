@@ -1,0 +1,25 @@
+<head>
+	<title>Gamygams Pizza</title>
+	<!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <style type="text/css">
+	  .brand{
+	  	background: #cbb09c !important;
+	  }
+  	.brand-text{
+  		color: #cbb09c !important;
+  	}
+  </style>
+</head>
+<!-- This will make the background a bit lighter than before -->
+<body class="grey lighten-4">
+	<nav class="white z-depth-0">
+    <div class="container">
+      <a href="#" class="brand-logo center brand-text">Gamygams Pizza</a>
+      <!-- this will hide tha navigation when it is small -->
+      <ul id="nav-mobile" class="right hide-on-small-and-down">
+      <!-- making it look like a button -->
+        <li><a href="#" class="btn brand z-depth-0">Add a Pizza</a></li>
+      </ul>
+    </div>
+  </nav>
