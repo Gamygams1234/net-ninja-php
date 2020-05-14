@@ -1,60 +1,28 @@
-<?php
-
-
-	// variable scope
-
-	// local vars
-
-	function myFunc(){
-		$price = 10;
-		echo $price;
-	}
-
-	// myFunc();
-	// echo $price;
-
-	function myFuncTwo($age){
-		echo $age;
-	}
-
-	// myFuncTwo(25);
-	// echo $age;
-
-	// global variables
-
-	$name = 'mario';
-
-	// function sayHello(){
-    // 	global $name;
-    // this will override the name globally
-	// 	$name = 'yoshi';
-	// 	echo "hello $name ";
-	// }
-
-	// sayHello();
-    // echo $name;
+<?php 
+    // this will cause an error but go on with the code
+	//include('ninjass.php');
     
+    
+    // this will also carry on, however, the rest of the code will not carry on
+	//require('ninjass.php');
 
-// the & will allow us to change the variable globally in the function
-	function sayBye(&$name){
-		$name = 'wario';
-		echo "bye $name ";
-	}
+	//include 'ninjas.php';
 
-	sayBye($name);
-	echo $name;
+	//require 'ninjas.php';
 
+	//echo 'end of php';
 
 ?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My first PHP file</title>
+	<title>PHP Tutorials</title>
 </head>
 <body>
 
+	<?php include('content.php'); ?>
+	<?php include('ninjas.php'); ?>
 
 </body>
 </html>
