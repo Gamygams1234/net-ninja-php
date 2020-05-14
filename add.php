@@ -42,7 +42,8 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
 		if(array_filter($errors)){
 		echo 'errors in form';
 		} else {
-			//echo 'form is valid';
+            //echo 'form is valid';
+            // this will take us back to the index
 			header('Location: index.php');
 		}
 
