@@ -1,21 +1,26 @@
 <?php 
 
-    // this will check if any values have been set
-    // if the submit value has been set, then the code will run
-	// if(isset($_GET['submit'])){
-	// 	echo $_GET['email'] . '<br />';
-	// 	echo $_GET['title'] . '<br />';
-	// 	echo $_GET['ingredients'] . '<br />';
-    // }
-    
-
-// this did the same thing but it is more secure and does not show up in the URL
 	if(isset($_POST['submit'])){
-        // this will protect us from XSS attacks
-		echo htmlspecialchars($_POST['email'] . '<br />');
-		echo htmlspecialchars($_POST['title'] . '<br />');
-		echo htmlspecialchars($_POST['ingredients'] . '<br />');
-	}
+      // check email
+        if (empty($_POST['email'])){
+            echo 'An email is requried <br />';
+        } else {
+            echo htmlspecialchars($_POST['email'] . '<br />');
+        }
+        
+              // check title
+              if (empty($_POST['title'])){
+                echo 'A title is requried  <br />';
+            } else {
+                echo htmlspecialchars($_POST['title'] . '<br />');
+            }
+                  // check ingredients
+        if (empty($_POST['ingredients'])){
+            echo 'Ingredients are requried for <br />';
+        } else {
+            echo htmlspecialchars($_POST['ingredients'] . '<br />');
+        }
+    } // end
 
 ?>
 
