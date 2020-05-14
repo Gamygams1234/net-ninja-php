@@ -11,9 +11,10 @@
 
 // this did the same thing but it is more secure and does not show up in the URL
 	if(isset($_POST['submit'])){
-		echo $_POST['email'] . '<br />';
-		echo $_POST['title'] . '<br />';
-		echo $_POST['ingredients'] . '<br />';
+        // this will protect us from XSS attacks
+		echo htmlspecialchars($_POST['email'] . '<br />');
+		echo htmlspecialchars($_POST['title'] . '<br />');
+		echo htmlspecialchars($_POST['ingredients'] . '<br />');
 	}
 
 ?>
