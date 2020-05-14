@@ -1,33 +1,40 @@
 <?php 
 
+// first we are creating variables
+
+// these variables need to be set first if not, we will get undefined
+$email = $title = $ingredients = '';
+
+$errors = array('email' => '', 'title' => '', 'ingredients' => '');
+
 	if(isset($_POST['submit'])){
       // check email
         if (empty($_POST['email'])){
-            echo 'An email is requried <br />';
+            $errors['email']  =  'An email is requried';
         } else {
            $email = $_POST['email'];
            if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
-            echo "email must be a valid email address";
+            $errors['email']  =  "email must be a valid email address";
            }
         }
         
               // check title
               if (empty($_POST['title'])){
-                echo 'A title is requried  <br />';
+                $errors['title']  =  'A title is requried';
             } else {
                 $title = $_POST['title'];
                 if(!preg_match('/^[a-zA-Z\s]+$/', $title)){
-                    echo 'Title must be letters and spaces only';
+                    $errors['title']  = 'Title must be letters and spaces only';
                 }
             }
                   // check ingredients
         if (empty($_POST['ingredients'])){
-            echo 'At least one ingredient is requried <br />';
+            $errors['ingredients']  = 'At least one ingredient is requried';
         } else {
             $ingredients = $_POST['ingredients'];
             // this is checking for a comma seperated list
         	if(!preg_match('/^([a-zA-Z\s]+)(,\s*[a-zA-Z\s]*)*$/', $ingredients)){
-				echo 'Ingredients must be a comma separated list';
+                $errors['ingredients']  = 'Ingredients must be a comma separated list';
         }
     } // end
     }
@@ -42,11 +49,15 @@
 		<h4 class="center">Add a Pizza</h4>
 		<form class="white" action="add.php" method="POST">
 			<label>Your Email</label>
-			<input type="text" name="email">
+            <!-- this will make sure that the value stays the value when there is an error -->
+			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
+            <div class="red-text"><?php echo $errors['email']; ?></div>
 			<label>Pizza Title</label>
-			<input type="text" name="title">
+			<input type="text" name="title" value="<?php echo htmlspecialchars($title) ?>">
+            <div class="red-text"><?php echo $errors['title']; ?></div>
 			<label>Ingredients (comma separated)</label>
-			<input type="text" name="ingredients">
+			<input type="text" name="ingredients" value="<?php echo htmlspecialchars($ingredients) ?>">
+            <div class="red-text"><?php echo $errors['ingredients']; ?></div>
 			<div class="center">
 				<input type="submit" name="submit" value="submit" class="btn brand z-depth-0">
 			</div>
