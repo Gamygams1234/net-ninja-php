@@ -53,6 +53,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
 
             // create sql
             // we are inserting those three thing into our sql
+            
 			$sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title','$email','$ingredients')";
         
         // save to db and check

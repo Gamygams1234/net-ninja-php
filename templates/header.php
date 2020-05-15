@@ -20,11 +20,11 @@
 <body class="grey lighten-4">
 	<nav class="white z-depth-0">
     <div class="container">
-      <a href="#" class="brand-logo center brand-text">Gamygams Pizza</a>
+      <a href="/tutorials" class="brand-logo center brand-text">Gamygams Pizza</a>
       <!-- this will hide tha navigation when it is small -->
       <ul id="nav-mobile" class="right hide-on-small-and-down">
       <!-- making it look like a button -->
-        <li><a href="#" class="btn brand z-depth-0">Add a Pizza</a></li>
+        <li><a href="add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
       </ul>
     </div>
   </nav>
