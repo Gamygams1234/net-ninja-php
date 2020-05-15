@@ -2,12 +2,8 @@
 <?php 
 
 
-$conn = mysqli_connect('localhost', 'gamy', 'test1234', 'gamygams_pizza'); // taking 4 items. (localhost, username, passwoed, the name of the actual database)
+ include('config/db_connect.php');
 
-
-if (!$conn){
-	echo "Connection error: " . mysqli_connect_error();
-}
 
 $sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at'; // this is a way we can order the data that we get
 
@@ -58,12 +54,7 @@ mysqli_close($conn);
 
 				<?php endforeach; ?>
 
-				<!--  this is going to be more explicit to know when we are doing loops -->
-				<?php if(count($pizzas) >= 3): ?>
-				<p>There is more than 3 pizza</p>
-			<?php else: ?>
-				<p>There are fewer than 3 pizzas</p>
-			<?php endif; ?>
+		
 
 		</div>
 	</div>

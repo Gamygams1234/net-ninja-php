@@ -1,5 +1,8 @@
 <?php 
 
+//  putting down our connection for our php
+include('config/db_connect.php');
+
 // first we are creating variables
 
 // these variables need to be set first if not, we will get undefined
@@ -42,12 +45,26 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
 		if(array_filter($errors)){
 		echo 'errors in form';
 		} else {
-            //echo 'form is valid';
-            // this will take us back to the index
-			header('Location: index.php');
-		}
+            // there are other ways to do this
+            // we are passing in the connection first, then our post
+            $email = mysqli_real_escape_string($conn, $_POST['email']);
+			$title = mysqli_real_escape_string($conn, $_POST['title']);
+			$ingredients = mysqli_real_escape_string($conn, $_POST['ingredients']);
 
+            // create sql
+            // we are inserting those three thing into our sql
+			$sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title','$email','$ingredients')";
+        
+        // save to db and check
+			if(mysqli_query($conn, $sql)){
+				// success
+				header('Location: index.php');
+			} else {
+                // this will show the error if it does not work for us
+				echo 'query error: '. mysqli_error($conn);
+			}
 
+      }
     }// end
 ?>
 
