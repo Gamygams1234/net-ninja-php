@@ -37,14 +37,24 @@ mysqli_close($conn);
 	<div class="container">
 		<div class="row">
 
+<!-- this is mapping out the array for all of them  -->
 			<?php foreach($pizzas as $pizza){ ?>
-
+					<!-- taking columns depending on the screen -->
 				<div class="col s6 md3">
 					<div class="card z-depth-0">
 						<div class="card-content center">
+						<!-- escaping any malware -->
 							<h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
-							<div><?php echo htmlspecialchars($pizza['ingredients']); ?></div>
+							<ul class="grey-text">
+
+							<!-- this is going to split the actual sentance and make it into a list -->
+								<?php foreach(explode(',', $pizza['ingredients']) as $ing){ ?>
+								<!-- this is how we are going to loop everything -->
+									<li><?php echo htmlspecialchars($ing); ?></li>
+								<?php } ?>
+							</ul>
 						</div>
+						
 						<div class="card-action right-align">
 							<a class="brand-text" href="#">more info</a>
 						</div>
