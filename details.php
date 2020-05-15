@@ -1,6 +1,23 @@
 <?php 
 // we want to make a connection to the database to start off
-	include('config/db_connect.php');
+    include('config/db_connect.php');
+    
+    
+	if(isset($_POST['delete'])){
+        // getting the value of the hidden input field
+		$id_to_delete = mysqli_real_escape_string($conn, $_POST['id_to_delete']);
+
+		$sql = "DELETE FROM pizzas WHERE id = $id_to_delete";
+
+		if(mysqli_query($conn, $sql)){
+            // this will be the success
+			header('Location: index.php');
+		} else {
+            // this will show the error on the screen
+			echo 'query error: '. mysqli_error($conn);
+		}
+
+	}
 
 
 	// check GET request id param
@@ -40,6 +57,16 @@
 			<p><?php echo date($pizza['created_at']); ?></p>
 			<h5>Ingredients:</h5>
 			<p><?php echo $pizza['ingredients']; ?></p>
+
+	<!-- DELETE FORM -->
+    <!-- the action is the file that we want to run on -->
+    <form action="details.php" method="POST">
+    <!-- this will not be shown on the field,  -->
+				<input type="hidden" name="id_to_delete" value="<?php echo $pizza['id']; ?>">
+                <!-- this will be shown as the delete -->
+				<input type="submit" name="delete" value="Delete" class="btn brand z-depth-0">
+			</form>
+
 		<?php else: ?>
 			<h5>No such pizza exists.</h5>
 		<?php endif ?>
