@@ -36,22 +36,17 @@ mysqli_close($conn);
 	<h4 class="center grey-text">Pizzas!</h4>
 	<div class="container">
 		<div class="row">
-
-<!-- this is mapping out the array for all of them  -->
-			<?php foreach($pizzas as $pizza){ ?>
-					<!-- taking columns depending on the screen -->
+		<!-- here we are using the same syntax as well -->
+			<?php foreach($pizzas as $pizza): ?>
+		
 				<div class="col s6 md3">
 					<div class="card z-depth-0">
 						<div class="card-content center">
-						<!-- escaping any malware -->
 							<h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
-							<ul class="grey-text">
-
-							<!-- this is going to split the actual sentance and make it into a list -->
-								<?php foreach(explode(',', $pizza['ingredients']) as $ing){ ?>
-								<!-- this is how we are going to loop everything -->
+							<ul class="grey-text">				
+								<?php foreach(explode(',', $pizza['ingredients']) as $ing): ?>		
 									<li><?php echo htmlspecialchars($ing); ?></li>
-								<?php } ?>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 						
@@ -61,7 +56,14 @@ mysqli_close($conn);
 					</div>
 				</div>
 
-			<?php } ?>
+				<?php endforeach; ?>
+
+				<!--  this is going to be more explicit to know when we are doing loops -->
+				<?php if(count($pizzas) >= 3): ?>
+				<p>There is more than 3 pizza</p>
+			<?php else: ?>
+				<p>There are fewer than 3 pizzas</p>
+			<?php endif; ?>
 
 		</div>
 	</div>
