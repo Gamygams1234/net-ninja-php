@@ -1,6 +1,6 @@
   
 <?php 
-// connect to database
+
 
 $conn = mysqli_connect('localhost', 'gamy', 'test1234', 'gamygams_pizza'); // taking 4 items. (localhost, username, passwoed, the name of the actual database)
 
@@ -8,8 +8,9 @@ $conn = mysqli_connect('localhost', 'gamy', 'test1234', 'gamygams_pizza'); // ta
 if (!$conn){
 	echo "Connection error: " . mysqli_connect_error();
 }
-// write query for all of the pizzas
-$sql = 'SELECT title, ingredients, id FROM pizzas';// we can use * for all of the items, however, we are only getting certain items
+
+$sql = 'SELECT title, ingredients, id FROM pizzas ORDER BY created_at'; // this is a way we can order the data that we get
+
 
 
 // make query and get results
@@ -24,7 +25,6 @@ mysqli_free_result($result);
 // close connection
 mysqli_close($conn);
 
-print_r($pizzas);
 
 ?>
 
@@ -32,6 +32,29 @@ print_r($pizzas);
 <html>
 	
 	<?php include('templates/header.php'); ?>
+	
+	<h4 class="center grey-text">Pizzas!</h4>
+	<div class="container">
+		<div class="row">
+
+			<?php foreach($pizzas as $pizza){ ?>
+
+				<div class="col s6 md3">
+					<div class="card z-depth-0">
+						<div class="card-content center">
+							<h6><?php echo htmlspecialchars($pizza['title']); ?></h6>
+							<div><?php echo htmlspecialchars($pizza['ingredients']); ?></div>
+						</div>
+						<div class="card-action right-align">
+							<a class="brand-text" href="#">more info</a>
+						</div>
+					</div>
+				</div>
+
+			<?php } ?>
+
+		</div>
+	</div>
 
 	<?php include('templates/footer.php'); ?>
 
