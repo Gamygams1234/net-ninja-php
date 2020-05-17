@@ -1,3 +1,21 @@
+<?php  
+ session_start();
+
+
+ if ($_SERVER['QUERY_STRING'] == 'noname'){
+// this is how to unset only one variable
+  //unset( $_SESSION['name']);
+
+  
+// this would unset everything
+  session_unset();
+ }
+
+ $name =  $_SESSION['name'];
+
+?>
+
+
 <head>
 	<title>Gamygams Pizza</title>
 	<!-- Compiled and minified CSS -->
@@ -20,7 +38,7 @@
         display: block;
         position: relative;
         top: -30px;
-        
+
       }
   </style>
 </head>
@@ -32,6 +50,8 @@
       <!-- this will hide tha navigation when it is small -->
       <ul id="nav-mobile" class="right hide-on-small-and-down">
       <!-- making it look like a button -->
+
+      <li class = "grey-text">Hello <?php echo $name; ?> </li>
         <li><a href="add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
       </ul>
     </div>

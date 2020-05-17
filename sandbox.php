@@ -2,21 +2,15 @@
 
 <?php 
 
-	// superglobals
+if(isset($_POST['submit'])){
+//  this starts a session
+    session_start();
+    
 
-	//$_GET['name'], $_POST['name']
+    $_SESSION['name'] = $_POST['name'];
 
-    echo $_SERVER['SERVER_NAME'] . '<br />';
-    // what we used to get the php page
-    echo $_SERVER['REQUEST_METHOD'] . '<br />';
-    // the pathe to this file
-    echo $_SERVER['SCRIPT_FILENAME'] . '<br />';
-    // path of current file relative to localhost
-	echo $_SERVER['PHP_SELF'] . '<br />';
-
-	// $_COOKIE, $_SESSION
-
-
+    header('Location: index.php');
+}
 
 
 ?>
@@ -29,6 +23,10 @@
 <body>
 
 
+<form action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
+		<input type="text" name="name">
+		<input type="submit" name="submit" value="submit">
+	</form>
 
 </body>
 </html>
