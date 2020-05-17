@@ -2,16 +2,18 @@
  session_start();
 
 
- if ($_SERVER['QUERY_STRING'] == 'noname'){
-// this is how to unset only one variable
-  //unset( $_SESSION['name']);
+ if ($_SESSION['name']== 'noname'){
 
-  
-// this would unset everything
-  session_unset();
+  unset( $_SESSION['name']);
+
+
+
+ // session_unset();
  }
 
- $name =  $_SESSION['name'];
+ $name =  $_SESSION['name'] ?? "Guest";
+   // get cookie
+   $gender = $_COOKIE['gender'] ?? 'Unknown';
 
 ?>
 
@@ -52,6 +54,7 @@
       <!-- making it look like a button -->
 
       <li class = "grey-text">Hello <?php echo $name; ?> </li>
+      <li class="grey-text">(<?php echo htmlspecialchars($gender); ?>)</li>
         <li><a href="add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
       </ul>
     </div>
