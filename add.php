@@ -53,7 +53,7 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
 
             // create sql
             // we are inserting those three thing into our sql
-            
+
 			$sql = "INSERT INTO pizzas(title,email,ingredients) VALUES('$title','$email','$ingredients')";
         
         // save to db and check
@@ -76,7 +76,8 @@ $errors = array('email' => '', 'title' => '', 'ingredients' => '');
 
 	<section class="container grey-text">
 		<h4 class="center">Add a Pizza</h4>
-		<form class="white" action="add.php" method="POST">
+        <!-- we can use the superglobal in our actions for the form  -->
+		<form class="white" action="<?php echo $_SERVER['PHP_SELF'] ?>" method="POST">
 			<label>Your Email</label>
             <!-- this will make sure that the value stays the value when there is an error -->
 			<input type="text" name="email" value="<?php echo htmlspecialchars($email) ?>">
