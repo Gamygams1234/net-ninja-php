@@ -1,19 +1,5 @@
 <?php  
- session_start();
 
-
- if ($_SESSION['name']== 'noname'){
-
-  unset( $_SESSION['name']);
-
-
-
- // session_unset();
- }
-
- $name =  $_SESSION['name'] ?? "Guest";
-   // get cookie
-   $gender = $_COOKIE['gender'] ?? 'Unknown';
 
 ?>
 
