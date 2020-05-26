@@ -34,7 +34,7 @@
 <body class="grey lighten-4">
 	<nav class="white z-depth-0">
     <div class="container">
-      <a href="/tutorials" class="brand-logo center brand-text">Gamygams Pizza</a>
+      <a href="/" class="brand-logo center brand-text">Gamygams Pizza</a>
       <!-- this will hide tha navigation when it is small -->
       <ul id="nav-mobile" class="right hide-on-small-and-down">
       <!-- making it look like a button -->
