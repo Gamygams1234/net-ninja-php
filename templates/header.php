@@ -39,7 +39,7 @@
       <ul id="nav-mobile" class="right hide-on-small-and-down">
       <!-- making it look like a button -->
 
-      <li class = "grey-text">Hello <?php echo $name; ?> </li>
+   
       <li class="grey-text">(<?php echo htmlspecialchars($gender); ?>)</li>
         <li><a href="add.php" class="btn brand z-depth-0">Add a Pizza</a></li>
       </ul>
